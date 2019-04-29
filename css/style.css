@@ -4,3 +4,11 @@ h1{
     font-size: 24px;
     margin: 0
 }
+/*div.content{
+*/
+.content{
+    background-color: rgba(188, 138, 221, 0.774);
+    width: 600px
+}
+/*divの中のcontentだけ (クラス名があれば、基本的にdivとかは消す)
+*/
