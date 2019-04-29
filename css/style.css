@@ -7,8 +7,31 @@ h1{
 /*div.content{
 */
 .content{
-    background-color: rgba(188, 138, 221, 0.774);
-    width: 600px
+    background-color: rgba(255, 255, 255, 0.774);
+    width: 600px;
+    margin: 10px auto;/*外側の余白*/
+    border: 1px solid #d1d1d1;
+    padding: 30px; /*内側の余白*/
 }
+/* marginは一つだけの値なら、上下左右
+ marginは２つだけの値なら、上下,左右
+ 上,右,下,左
+*/
 /*divの中のcontentだけ (クラス名があれば、基本的にdivとかは消す)
 */
+input{
+    border: 0;
+    border-bottom: 1px solid #d1d1d1;
+    width: 100%;
+    font-size: 1.2em; /* em 周り文字の大きさの相対的な大きさ */
+    padding: 8px;
+}
+button{
+    width: 100%;
+    background-color: #2096F3;
+    color:white;
+    border: 0;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,.5)
+}
