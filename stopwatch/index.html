@@ -24,27 +24,24 @@
 
         </div>
         <script>
-            var addZero = function (value) {
-                if (value < 10) {
-                    value = "0" + value;
-                }
-                return value;
+
+            var start;
+            document.getElementById("start_stop").addEventListener("click", function () {
+                start = new Date();
+                setInterval(goTimer, 10);
+            });
+            var goTimer = function () {
+                var now = new Date();
+                var milli = now.getTime() - start.getTime();
+                var seconds = Math.floor(milli / 1000);
+                var minutes = Math.floor(seconds / 60);
+                var hours = Math.floor(minutes / 60);
+
+                seconds = seconds - minutes * 60;
+
+
+                document.getElementById("timer").innerHTML = hours + ":" + minutes + ":" + seconds;
             }
-            document.getElementById("start_stop").addEventListener("click",
-                function () {
-
-                    var now = new Date();
-                    var seconds = now.getSeconds();
-                    var minutes = now.getMinutes();
-                    var hours = now.getHours()
-
-                    seconds = addZero(seconds);
-                    minutes = addZero(minutes);
-                    hours = addZero(hours);
-
-                    document.getElementById('timer').innerHTML = hours + ":" + minutes + ":" + seconds;
-                    //document.getElementById("timer").remove()
-                });
         </script>
 
     </body>
