@@ -24,8 +24,27 @@
 
         </div>
         <script>
-            document.getElementById('timer').innerHTML = '00:00:01';
-            //document.getElementById("timer").remove()
+            var addZero = function (value) {
+                if (value < 10) {
+                    value = "0" + value;
+                }
+                return value;
+            }
+            document.getElementById("start_stop").addEventListener("click",
+                function () {
+
+                    var now = new Date();
+                    var seconds = now.getSeconds();
+                    var minutes = now.getMinutes();
+                    var hours = now.getHours()
+
+                    seconds = addZero(seconds);
+                    minutes = addZero(minutes);
+                    hours = addZero(hours);
+
+                    document.getElementById('timer').innerHTML = hours + ":" + minutes + ":" + seconds;
+                    //document.getElementById("timer").remove()
+                });
         </script>
 
     </body>
