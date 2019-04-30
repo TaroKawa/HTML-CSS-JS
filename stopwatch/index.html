@@ -27,8 +27,19 @@
 
             var start;
             document.getElementById("start_stop").addEventListener("click", function () {
-                start = new Date();
-                setInterval(goTimer, 10);
+                if (this.innerHTML === "START") {
+                    start = new Date();
+                    timer_id = setInterval(goTimer, 10);
+                    this.innerHTML = "STOP";
+                    this.classList.remove("btn-primary");
+                    this.classList.add("btn-danger")
+                }
+                else {
+                    clearInterval(timer_id)
+                    this.innerHTML = "START";
+                    this.classList.remove("btn-danger");
+                    this.classList.add("btn-primary")
+                }
             });
             var goTimer = function () {
                 var now = new Date();
