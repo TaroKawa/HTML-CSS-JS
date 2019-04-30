@@ -21,14 +21,15 @@
             <p> 入会するには、次のフォームに必要事項をご記入ください </p>
             <!--p means 'paragraph' -->
 
-            <div>
-                <label for="mymail">メールアドレス</label>
+            <div class="control">
+                <label for="mymail">メールアドレス <span class="required">必須</span></label>
                 <!--for means "form" idの部分を入れる-->
+                <!--spanはインライン 行の中で変えたいときに使う-->
                 <input id="mymail" type="email" name="mymail">
             </div>
 
-            <div>
-                <label for="passcode">パスワード</label>
+            <div class="control">
+                <label for="passcode">パスワード<span class="required">必須</span></label>
                 <!--for means "form" idの部分を入れる-->
                 <input id="passcode" type="password" name="passcode">
             </div>
