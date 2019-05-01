@@ -19,40 +19,13 @@
 
             </div>
         </div>
+        <script src="js/jquery.js"></script>
         <script>
-            var ajax = new XMLHttpRequest(); // ajax通信をするため
-            ajax.open("GET", "https://h2o-space.com/htmlbook/images.php"); // 相手先のアドレス
-            ajax.responseType = "json"; // どういうデータで帰ってくっるかを指定する
-            ajax.send(null);
-            ajax.onreadystatechange = function () {
-                // 0 インスタンスができた
-                // 1 openメソッドを利用した
-                // 2 headerが受信できた
-                // 3 データ受信中
-                // 4 通信が終わった
-                if (ajax.readyState === XMLHttpRequest.DONE&& ajax.status === 200) {
-                    for (var i = 0; i < this.response.length; i++) {
-                    //    alert(this.response[i].path)
-                    var data=this.response[i];
-                    var img = document.createElement("img")
-                    img.setAttribute("src",data.path);
+            $("#img_unit").html("ここに、画像リストが表示されます").css("margin-top","100px");
+            // $(セレクター).メソッド("パラメータ").メソッド("パラメータ") 
 
-                    var caption=document.createElement("div");
-                    caption.className="inner";
-                    caption.innerHTML="<p>"+data.caption+"<span>"+data.name+"</span></p<>"
-                    
-                    var div=document.createElement("div");
-                    div.className="photo";
-                    div.appendChild(img);
-                    div.appendChild(caption);
-                    document.getElementById("img_unit").appendChild(div);
-
-
-                    }
-
-                }
-            }
         </script>
+        
     </body>
 
 </html>
