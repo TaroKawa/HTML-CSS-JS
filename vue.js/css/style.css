@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: aqua;
+}
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 3px rgb(0,0, 0);
+}
+
+img{
+    width: 100%;
+    margin: 0;
+    vertical-align: top;
+}
+header{
+    background-color: blueviolet;
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: inherit;
+}
+header h1{
+    margin: 0;
+    font-size: 25px;
+    padding: 5px;
+    text-align: center;
+    font-family: "Open Sans Condensed",sans-serif;
+}
+.photo .inner{
+    position: absolute;
+    bottom: 0;
+    background-color: black;
+    font-size: 10px;
+    color: #fff;
+    margin: 0;
+}
+.inner p{
+    padding: 20px;
+}
+.inner span{
+    margin-left: 10px;
+}

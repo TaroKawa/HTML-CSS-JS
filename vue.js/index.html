@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <title>My Photos</title>
+    </head>
+
+    <body>
+        <header>
+            <h1 My Photos></h1>
+        </header>
+        <div class="container">
+            <div id="img_unit">
+                <div class="photo" v-for="Photo in Photos">
+                    <img :src="Photo.path">
+                    <!-- vue.jsにしたかったら、:をいれる-->
+                    <div class="inner">
+                        <p>{{Photo.caption}}<span>{{Photo.name}}</span></p>
+                    </div>
+                </div>
+            </div>
+            <div id="vue_unit">
+                {{message}}<br>
+                {{greeting}}
+            </div>
+        </div>
+        <script src="js/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+        <script>
+
+            // constructorを作成する
+            var app = new Vue({
+                el: "#img_unit",
+                data: {
+                    Photos: []
+                },
+                created: function () {
+                    var self = this;
+                    $.getJSON("https://h2o-space.com/htmlbook/images.php", function (data) {
+                        self.Photos = data;
+                    });
+                }
+            })
+
+            $.getJSON("https://h2o-space.com/htmlbook/images.php", function (data) {
+                //alert("データを受信しました");
+                for (var i = 0; i < data.length; i++) {
+                    $('<div class="photo"></div>')
+                        .append('<img src="' + data[i].path + '">')
+                        .append('<div class="inner"><p>' + data[i].caption + '<span>' + data[i].name + '</span></p></div>')
+                        .appendTo('#img_unit');
+
+                }
+            });
+
+
+        </script>
+        <script>
+            $("#img_unit").html("ここに、画像リストが表示されます").css("margin-top", "100px");
+            // $(セレクター).メソッド("パラメータ").メソッド("パラメータ")
+
+        </script>
+
+    </body>
+
+</html>
