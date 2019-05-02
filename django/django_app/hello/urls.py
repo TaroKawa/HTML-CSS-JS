@@ -24,9 +24,11 @@ urlpatterns = [
     # path('<int:id>/<nickname>/', views.index, name="index"),
     # path('my_name_is_<nickname>.I_am_<int:age>_years_old.', views.index, name='index'),
     # path('', views.index, name="index"),
- #   path('next', views.next, name="次のページへ"),
- #   path('', views.index2, name="index12"), # name="ここが{% urlの後の%}に効いてくる"
- #   path('form', views.form, name="form"),
+    #path('next', views.next, name="次のページへ"),
+    #path('', views.index2, name="index12"), # name="ここが{% urlの後の%}に効いてくる"
+    #path('form', views.form, name="form"),
+
+    path('', views.index, name="index"),
     #### class による書き方 ####
-    url(r"",HelloView.as_view(),name="index"),
+    #url(r"",HelloView.as_view(),name="index"),
 ]

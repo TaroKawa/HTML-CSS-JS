@@ -41,13 +41,21 @@ def index(request):
     params={
         "title": "Hello",
         "message": "all friends",
-        "data": data,
+        "form": HelloForm(),
+        "data":[],
     }
    # params = {
    #     'title': "Hello/Index",
    #     'msg': "OKkkkkkk",
    #     'goto': '次のページへ',
    # }
+    if(request.method=="POST"):
+        num=request.POST["id"]
+        item=Friend.objects.get(id=num)
+        params["data"]=[item]
+        params["form"]=HelloForm(request.POST)
+    else:
+        params["data"]=Friend.objects.all()
     return render(request, "hello/index.html", params)
 
 
