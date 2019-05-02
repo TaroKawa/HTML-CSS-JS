@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from .forms import HelloForm
+from .models import Friend
 
 
 class HelloView(TemplateView):
@@ -24,6 +25,7 @@ class HelloView(TemplateView):
         return render(request, "hello/index.html", self.params)
 
 
+
 # def index(request, nickname, age):
 def index(request):
     # if "msg" in request.GET:
@@ -35,11 +37,17 @@ def index(request):
     # result = "your account: " + nickname + '"(' + str(age) + ').'
     # return HttpResponse(result)
     ##################################################
-    params = {
-        'title': "Hello/Index",
-        'msg': "OKkkkkkk",
-        'goto': '次のページへ',
+    data=Friend.objects.all()
+    params={
+        "title": "Hello",
+        "message": "all friends",
+        "data": data,
     }
+   # params = {
+   #     'title': "Hello/Index",
+   #     'msg': "OKkkkkkk",
+   #     'goto': '次のページへ',
+   # }
     return render(request, "hello/index.html", params)
 
 
